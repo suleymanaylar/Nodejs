@@ -1,4 +1,6 @@
 var express = require("express");
+var jwt = require("jwt-simple");
+
 var router = express.Router();
 
 var User = require("../models/user");
@@ -23,8 +25,9 @@ router.post("/login", async (request, response) => {
   if (userDate.password != user.password) {
     return response.status(401).send({ message: "Email or Password is valid" });
   }
-
-  return response.status(200);
+  var payload = {};
+  var token = jwt.encode(payload, "12345");
+  return response.status(200).send({ token });
 });
 
 var user = { router };
