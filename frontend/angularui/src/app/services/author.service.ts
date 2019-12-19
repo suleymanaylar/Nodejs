@@ -14,4 +14,6 @@ export class AuthorService {
   getAuthors(): Observable<Author[]> {
     return this.http.get<Author[]>(this.path + '/author')
   }
+
+  
 }
