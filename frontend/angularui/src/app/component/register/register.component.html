@@ -1,20 +1,20 @@
 <form>
     <div class="form-group">
         <label for="exampleInputEmail1">First Name</label>
-        <input type="text" class="form-control" id="firstName" >
+        <input type="text"  [(ngModel)]="registerUser.firstName" name="firstName"class="form-control" >
       </div>
       <div class="form-group">
         <label for="exampleInputEmail1">Last Name</label>
-        <input type="text" class="form-control" id="lastName" >
+        <input type="text" [(ngModel)]="registerUser.lastName" name="lastName"class="form-control"  >
       </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control">
+      <input type="email" [(ngModel)]="registerUser.email" name="email" class="form-control">
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" >
+      <input type="password" [(ngModel)]="registerUser.password" name="password" class="form-control" >
     </div>
     
-    <button type="submit" class="btn btn-primary">Register</button>
+    <button type="submit" (click)="register(registerUser)" class="btn btn-primary">Register</button>
   </form>

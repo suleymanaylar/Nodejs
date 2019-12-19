@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { RegisterUser } from './registerUser';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -11,11 +12,11 @@ import { RegisterUser } from './registerUser';
 export class RegisterComponent implements OnInit {
 
   constructor(private authService:AuthService) { }
-  registerUser:RegisterUser;
+  registerUser:any={};
 
   ngOnInit() {
   }
-  register(registerUser:RegisterUser){
-    this.authService.register(registerUser)
+  register(form: NgForm){
+    this.authService.register(this.registerUser)
   }
 }
