@@ -22,7 +22,7 @@ export class AuthService {
     let headers = new HttpHeaders()
     headers.append("Content-Type", "application/json")
     this.http.post(this.path + '/user/login', loginUser, { headers: headers }).subscribe(data => {
-      alert(data)
+      this.saveToken(data['token'])
     })
   }
 

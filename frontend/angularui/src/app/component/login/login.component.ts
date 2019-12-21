@@ -16,7 +16,6 @@ loginUser:any={}
   ngOnInit() {
   }
   login(loginUser){
-    // alert(loginUser.email)
     this.authService.login(loginUser)
   }
 }

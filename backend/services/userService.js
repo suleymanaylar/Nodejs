@@ -32,6 +32,18 @@ router.post("/login", async (request, response) => {
   return response.status(200).send({ token });
 });
 
-var user = { router };
+var user = { router ,chechAuthenticated:(request,response,next)=>{
+  if (!request.header('authorization')) {
+    return response.status(401).send({message:'Unauthorized. No Authorization headers'})
+  }
+  var token=request.header("authorization").split(' ')[1];
+  var payload=jwt.decode(token,"54321")
+
+  if (!payload) {
+    return response.status(401).send({message:"Unauthorized.Token is not valid"})
+  }
+ 
+  next()
+}};
 
 module.exports = user;
